@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 function TopBar() {
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<div className="row pt-2">
@@ -9,10 +13,22 @@ function TopBar() {
 					{/* <button type="button" className="btn btn-primary">
 						Dashboard
 					</button> */}
-					<button type="button" className="btn btn-primary border">
+					<button
+						type="button"
+						className="btn btn-primary border"
+						onClick={() => {
+							navigate("/current-semester");
+						}}
+					>
 						Current Semester
 					</button>
-					<button type="button" className="btn btn-primary border">
+					<button
+						type="button"
+						className="btn btn-primary border"
+						onClick={() => {
+							navigate("/academic-history");
+						}}
+					>
 						Academic History
 					</button>
 				</div>

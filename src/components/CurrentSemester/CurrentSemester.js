@@ -1,4 +1,17 @@
 function CurrentSemester() {
+	let getCourses = () => {
+		let courses = [];
+		for (let i = 0; i < 3; i++) {
+			courses.push(
+				<div className="card-text row py-4">
+					<div className="col col-8">Algorithms & Data Structures {i}</div>
+					<div className="col col-4">100%</div>
+				</div>
+			);
+		}
+		return courses;
+	};
+
 	return (
 		<div className="row">
 			<div className="col col-8 ">
@@ -11,10 +24,7 @@ function CurrentSemester() {
 								<div className="col col-4">Grade</div>
 							</div>
 						</div>
-						<div className="card-text row">
-							<div className="col col-8">Algorithms & Data Structures</div>
-							<div className="col col-4">100%</div>
-						</div>
+						{getCourses()}
 					</div>
 				</div>
 			</div>
