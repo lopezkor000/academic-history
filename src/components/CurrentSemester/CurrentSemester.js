@@ -29,13 +29,13 @@ function CurrentSemester() {
 					<div className="card bg-secondary-subtle">
 						<div className="card-body">
 							<div className="card-title border-bottom border-secondary row">
-								<h3 className="text-center col">Courses</h3>
+								<h3 className="text-center col">Fall '24 Courses</h3>
 								<button
-									className="btn btn-primary position-absolute end-0 bottom-10 w-25 me-3"
+									className="btn btn-primary position-absolute end-0 bottom-10 w-auto me-3"
 									data-bs-toggle={"offcanvas"}
 									data-bs-target={"#newcourse"}
 								>
-									+ add course
+									+
 								</button>
 							</div>
 							{getCourses()}
