@@ -1,32 +1,24 @@
-import Chevron from "../../resources/icons/Chevron";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import CourseTab from "./Courses/CourseTab";
 
 function CurrentSemester() {
+	let [courses, setCourses] = useState({});
+
+	useEffect(() => {
+		(async () => {
+			let result = await axios("http://localhost:8000/0");
+			let semester = result.data.years["2024"].semesters["fall"];
+			setCourses(semester.courses);
+		})();
+	}, []);
+
 	let getCourses = () => {
-		let courses = [];
-		for (let i = 0; i < 3; i++) {
-			courses.push(
-				<div className="w-100 py-2">
-					<button
-						className="btn w-100"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target={`#collapse${i}`}
-					>
-						<div key={i} className="card-text row">
-							<div className="col col-1">
-								<Chevron />
-							</div>
-							<div className="col col-7">Algorithms & Data Structures {i}</div>
-							<div className="col col-4">100%</div>
-						</div>
-					</button>
-					<div className="collapse" id={`collapse${i}`}>
-						<p>something hidden here!</p>
-					</div>
-				</div>
-			);
+		let coursesDiv = [];
+		for (let [name, details] of Object.entries(courses)) {
+			coursesDiv.push(<CourseTab key={name} name={name} details={details} />);
 		}
-		return courses;
+		return coursesDiv;
 	};
 
 	return (
