@@ -1,3 +1,5 @@
+import Dropdown from "./Inputs/Dropdown";
+
 function NewCourse() {
 	return (
 		<div
@@ -6,15 +8,14 @@ function NewCourse() {
 			id={"newcourse"}
 		>
 			<div className="offcanvas-header row">
-				<h3>Edit Courses</h3>
+				<h3 className="col">Edit Courses</h3>
+				<button
+					className="btn-close position-absolute end-0 top-0 p-5 shadow-none"
+					data-bs-dismiss={"offcanvas"}
+				/>
 			</div>
 			<div className="offcanvas-body row">
-				<p>
-					Adipisicing proident veniam enim amet veniam. Irure exercitation
-					nostrud ad nisi fugiat et cupidatat proident sit Lorem sunt voluptate
-					occaecat adipisicing. Non in eiusmod tempor irure est Lorem enim velit
-					officia ullamco ut eu magna.
-				</p>
+				<Dropdown items={["item-1", "item-2", "item-3"]} />
 			</div>
 		</div>
 	);
